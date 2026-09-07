@@ -155,3 +155,51 @@ button {
   --btn-color: rgb(169, 120, 52);
   cursor: not-allowed;
 }
+
+@media (max-width: 700px) {
+  .wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: repeat(5, 1fr);
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .side {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #222;
+  }
+
+  .lever {
+    flex-direction: row;
+  }
+
+  .info {
+    overflow-y: auto;
+  }
+
+  .info p {
+    margin-bottom: 12px;
+  }
+
+  .photos {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .photos img {
+    width: calc(50% - 4px);
+    max-height: 220px;
+  }
+
+  .reel {
+    grid-row: 2;
+    min-height: 0;
+    min-width: 0;
+  }
+}
