@@ -1,0 +1,157 @@
+@font-face {
+  font-family: Optician;
+  src: url("./Optician-Sans.woff2");
+}
+
+:root {
+  font-family: Arial, sans-serif;
+}
+
+html,
+body {
+  touch-action: none;
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+  font-size: 18px;
+}
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+body {
+  background: #000;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.reel {
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  border-right: 1px solid #222;
+  box-shadow:
+    inset 0 12px 16px -12px #000,
+    inset 0 -12px 16px -12px #000;
+}
+
+.reel .strip {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  will-change: transform;
+}
+
+.reel .strip img {
+  width: 100%;
+  height: var(--reel-h);
+  object-fit: contain;
+  background: #fff;
+  flex: 0 0 auto;
+}
+
+.side {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  border-right: 1px solid #222;
+  min-height: 0;
+}
+
+.info {
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.info h1 {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.info p {
+  line-height: 1.5;
+  margin: 0px;
+  margin-bottom: 40px;
+  padding: 0;
+}
+
+.photos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.photos img {
+  width: 100%;
+  object-fit: cover;
+  background: #fff;
+}
+
+.lever {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font-family: Optician;
+  appearance: none;
+  background: var(--btn-color, blue);
+  color: white;
+  border-width: 15px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 20px;
+  font-size: 30px;
+  letter-spacing: 10px;
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--btn-color, blue), white 50%)
+    color-mix(in srgb, var(--btn-color, blue), black 25%)
+    color-mix(in srgb, var(--btn-color, blue), black 50%)
+    color-mix(in srgb, var(--btn-color, blue), white 25%);
+
+  transition: transform 0.2s;
+
+  &:active:not(:disabled) {
+    border-color: color-mix(in srgb, var(--btn-color, blue), black 50%)
+      color-mix(in srgb, var(--btn-color, blue), white 25%)
+      color-mix(in srgb, var(--btn-color, blue), white 50%)
+      color-mix(in srgb, var(--btn-color, blue), black 25%);
+  }
+
+  &:disabled {
+    --btn-color: rgb(35, 35, 35) !important;
+    cursor: not-allowed;
+  }
+}
+
+#spin.spinning {
+  --btn-color: rgb(169, 120, 52);
+  cursor: not-allowed;
+}
